@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <ui:composition>
+            <nav>
+                <ul>
+                    <li><h:link outcome="home.xhtml" value="Home"/></li>
+                    <li class="dropdown"><h:link value="Cadastrar" styleClass="dropdown-botao"/>
+                        <div class="dropdown-conteudo">
+                            <h:link value="Zoológico" outcome="cadastrar_zoo.xhtml"/>
+                            <h:link value="Espécie" outcome="cadastrar_especie.xhtml"/>
+                            <h:link value="Animal" outcome="cadastrar_animal.xhtml"/>
+                        </div>
+                    </li>
+                    <li class="dropdown"><h:link value="Atualizar" styleClass="dropdown-botao"/>
+                        <div class="dropdown-conteudo">
+                            <h:link value="Animal" outcome="atualizar_animal.xhtml"/>
+                        </div>
+                    </li>
+                    <li class="dropdown"><h:link value="Listar" styleClass="dropdown-botao"/>
+                        <div class="dropdown-conteudo">
+                            <h:link value="Animais" outcome="listar_animais.xhtml"/>
+                            <h:link value="Zoológicos" outcome="listar_zoologicos.xhtml"/>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </ui:composition>
+    </h:body>
+</html>

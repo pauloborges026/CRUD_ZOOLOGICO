@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:body>
+        <ui:composition>
+            <label for="nome">Nome: </label>
+            <h:inputText id="nome"
+                         styleClass="input"
+                         required="true"
+                         requiredMessage="Nome - Campo necessário."
+                         value="#{animalControle.animal.nome}"/>
+
+            <label for="peso">Peso: </label>
+            <h:inputText id="peso"
+                         styleClass="input"
+                         required="true"
+                         requiredMessage="Peso - Campo necessário."
+                         value="#{animalControle.animal.peso}"/>
+
+            <label for="dt_nasc">Data de Nascimento: </label>
+            <h:inputText id="dt_nasc"
+                         a:type="date"
+                         styleClass="input"
+                         converter="localDate"
+                         value="#{animalControle.animal.dataNascimento}"/>
+
+            <label for="zoo">Zoológico: </label>
+            <h:selectOneMenu id="zoo"
+                             styleClass="input"
+                             required="true"
+                             requiredMessage="Zoológico - Campo necessário."
+                             value="#{animalControle.animal.zoologico}">
+                <f:selectItem itemLabel="" noSelectionOption="true"/>
+                <f:selectItems value="#{animalControle.zoologicos}"
+                               var="zoo"
+                               itemLabel="#{zoo.nome}"
+                               itemValue="#{zoo}"/>
+            </h:selectOneMenu>
+            
+            <label for="especie">Espécie: </label>
+            <h:selectOneMenu id="especie"
+                             styleClass="input"
+                             converter="especieconverter"
+                             required="true"
+                             requiredMessage="Espécie - Campo necessário."
+                             value="#{animalControle.animal.especie}">
+                <f:selectItem itemLabel="" noSelectionOption="true"/>
+                <f:selectItems value="#{animalControle.especies}"
+                               var="especie"
+                               itemLabel="#{especie.nome}"
+                               itemValue="#{especie}"/>
+            </h:selectOneMenu>
+
+            <h:commandButton value="Cadastrar"
+                             styleClass="botao"
+                             action="#{animalControle.addAnimal()}"/>
+            <h:messages id="mensagemForm" styleClass="mensagem"/>
+
+        </ui:composition>
+    </h:body>
+</html>

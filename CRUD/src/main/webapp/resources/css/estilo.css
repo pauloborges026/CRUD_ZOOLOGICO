@@ -1,0 +1,259 @@
+/* 
+    Created on : 20/09/2018, 09:29:24
+    Author     : professor
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightseagreen;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 940px;
+    box-shadow: 0 0 4px 0.2px;
+}
+
+#container > header {
+    padding: 20px;
+    background-color: bisque;
+    text-align: center;
+}
+
+nav {
+    background-color: darkgreen;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    font: 15px sans-serif;
+    color: mediumspringgreen;
+}
+
+nav ul a:hover {
+    background-color: lightseagreen;
+    color: white;
+    border-top-right-radius: 15px;
+}
+
+main {
+    min-height: 450px;
+    background-color: whitesmoke;
+    padding: 15px;
+    position: relative;
+}
+
+main fieldset {
+    padding: 2%;
+}
+
+section header {
+    color: darkorange;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+fieldset section:first-of-type {
+    float: left;
+    width: 30%;
+    margin-right: 2%;
+    border-right: 2px solid green;
+}
+
+fieldset section:first-of-type * {
+    display: block;
+    margin-bottom: 10px;
+}
+
+fieldset section:last-of-type {
+    float: left;
+    width: 68%;
+}
+
+footer {
+    height: 80px;
+    background-color: darkgreen;
+    clear: both;
+    padding: 10px;
+}
+
+footer * {
+    font-size: 17px;
+    text-decoration: none;
+    margin-right: 5px;
+    color: brown;
+}
+
+.botao, .botao-aside {
+    padding: 5px 8px;
+    background: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.botao:hover, .botao-aside:hover {
+    background-color: darkolivegreen;
+    cursor: pointer;
+}
+
+.botao-aside {
+    background: darkcyan;
+    position: absolute;
+    right: 5%;
+}
+
+/* MENSAGEM */
+.mensagem, .mensagem-warn {
+    color: darkslategray;
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.mensagem-warn {
+    color: #e79612;
+}
+
+/* LOGIN */
+.input {
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* MENU */
+
+.dropdown-conteudo {
+    display: none;
+    position: absolute;
+    background-color: #ffe4c4;
+    min-width: 160px;
+    box-shadow: 5px 8px 16px 0px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 15px;
+    z-index: 1;
+}
+
+.dropdown-conteudo a { 
+    color: #8b1501;
+    border-bottom: 1px solid #8b1501;
+}
+
+.dropdown-conteudo a:hover { 
+    background: #e79612;
+    border-radius: 0;
+}
+
+.dropdown-conteudo a:last-of-type {
+    border-bottom: 0;
+}
+
+.dropdown-conteudo a:last-of-type:hover {
+    border-bottom-left-radius: 15px;
+}
+
+.dropdown:hover .dropdown-botao { 
+    background: lightseagreen; 
+    color: white;
+    border-top-right-radius: 15px;
+} 
+
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+/* TABELA */
+.tabela {
+    width: 95%;
+    margin: 10px auto;
+    text-align: center;
+    font-family: arial;
+    border: 2px solid #8b1501;
+}
+
+.tabela_header {
+    color: bisque;
+    background: #8b1501;
+    padding: 5px;
+}
+
+.linha_par {
+    background: bisque;
+    text-align: center;
+    border-top: 1px solid green;
+}
+
+.linha-impar {
+    background: white;
+    text-align: center;
+    
+}
+
+.titulo {
+    font-family: arial, sans-serif;
+    font-weight: 700;
+    color: darkslategray;
+    margin: 2% 0 0 3%;
+}
+
+/* BOTÕES E ÍCONES */
+.delete_icon {
+    background: url(../img/trash_icon.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.botao-nao, .botao-sim {
+    padding: 5px 10px;
+    border: none;
+    background: #e79612;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0.5px rgba(0,0,0,0.3);
+    margin-top: 1em;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.botao-sim {
+    background: cornflowerblue;
+    margin-left: 2em;
+}
+
+.botao-nao:hover, .botao-sim:hover {
+    border: 1px solid #ffe4c4;
+}
+
+.dialogo {
+    padding: 1em;
+    background: linen;
+    text-align: center;
+    border: 1px solid activecaption;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0.5px rgba(0,0,0,0.3);
+    color: #8b1501;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

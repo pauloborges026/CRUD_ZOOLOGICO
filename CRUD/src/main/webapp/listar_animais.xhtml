@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Listagem de Animais</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+            <ui:define name="main">
+                <main>
+                    <h:form>
+                        <label for="categoria" style="margin: 3% 0 0 3%;">Zoológico: </label>
+                        <h:selectOneMenu value="#{animalControle.zoologico}">
+                            <f:selectItem itemLabel="" noSelectionOption="true"/>
+                            <f:selectItems value="#{animalControle.zoologicos}"
+                                           var="zoo"
+                                           itemLabel="#{zoo.nome}"
+                                           itemValue="#{zoo}"/>
+                        </h:selectOneMenu>
+                        <h:commandButton value="Buscar"
+                                         styleClass="botao"
+                                         style="margin-left: 15px;"
+                                         action="#{animalControle.buscarAnimalPorZoologico()}"/>
+
+                        <h:commandButton value="Mais Pesados"
+                                         styleClass="botao-aside"
+                                         action="#{animalControle.buscarAnimaisMaisPesados()}"/>
+                    </h:form>
+                    <h:form prependId="false">
+                        <p class="titulo">Animais do Zoológico - #{animalControle.zoologico.nome}</p>
+
+                        <h:dataTable value="#{animalControle.animaisSelecionados}"
+                                     var="animal"
+                                     styleClass="tabela"
+                                     headerClass="tabela_header"
+                                     rowClasses="linha_impar, linha_par">
+
+                            <h:column>
+                                <f:facet name="header">Nome</f:facet>
+                                    #{animal.nome}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Peso</f:facet>
+                                    #{animal.peso}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Nascimento</f:facet>
+                                    #{animal.dataNascimento}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Zoológico</f:facet>
+                                    #{animal.zoologico.nome}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Ações</f:facet>
+                                <h:commandButton styleClass="delete_icon" 
+                                                 action="#{animalControle.deletarAnimal()}">
+                                    <f:param name="animal" value="#{animal.id}"/>
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                        <div jsf:id="dialogo" class="dialogo">
+                            <p>Realmente deseja deletar o animal?</p>
+                            <h:commandButton value="Não" styleClass="botao-nao"/>
+                            <h:commandButton value="Sim" 
+                                             styleClass="botao-sim"/>
+                        </div>
+                    </h:form>
+                </main>
+                <script>
+                    $(function () {
+                        $(".delete").click(function() {
+                           $("#dialogo").show();
+                        });
+                    });
+
+                    function mostrar() {
+                        document.getElementById("dialogo").style.display = "inline";
+                    }
+                </script>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
